@@ -38,14 +38,15 @@
 					</ul>
 				</div>
 				<div class="right fr">
-					<div class="gouwuche fr"><a href="">购物车</a></div>
+					<div class="gouwuche fr"><a href="${ctx}/gouwuche.jsp">购物车</a></div>
 					<div class="fr">
 						<ul>
+							<li>您好，请登录!</li>
 							<li><a href="${ctx}/user/login" target="_self">登录</a></li>
 							<li>|</li>
 							<li><a href="${ctx}/user/regist" target="_self" >注册</a></li>
 							<li>|</li>
-							<li><a href="">消息通知</a></li>
+							<li><a href="${ctx}/order/find">消息通知</a></li>
 						</ul>
 					</div>
 					<div class="clear"></div>
@@ -57,12 +58,12 @@
 
 <!-- start banner_x -->
 		<div class="banner_x center">
-			<a href="./index.jsp" target="_self"><div class="logo fl"></div></a>
+			<a href="${ctx}/index.jsp" target="_self"><div class="logo fl"></div></a>
 			<a href=""><div class="ad_top fl"></div></a>
 			<div class="nav fl">
 				<ul>
-					<li><a href="${ctx}/product/page" target="_self">小米手机</a></li>
-					<li><a href="">红米</a></li>
+					<li><a href="${ctx}/user/judgelogin" target="_self">小米手机</a></li>
+					<li><a href="${ctx}/user/judgelogin1">热门红米</a></li>
 					<li><a href="">平板·笔记本</a></li>
 					<li><a href="">电视</a></li>
 					<li><a href="">盒子·影音</a></li>

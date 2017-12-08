@@ -23,7 +23,6 @@ public class ProductController {
 	@Resource
 	private ProductService productService;
 	
-
 	
 	@RequestMapping(value="/page", method=RequestMethod.GET)
 	public String page(Model model,HttpServletRequest request){ 
@@ -42,6 +41,24 @@ public class ProductController {
 		model.addAttribute("page", p);
 		model.addAttribute("list", list);
 		return "liebiao";
+	}
+	@RequestMapping(value="/hot", method=RequestMethod.GET)
+	public String hotphone(Model model,HttpServletRequest request){
+		String pageNum = (String)request.getParameter("pageNum");
+		int num = 0;
+		if(pageNum ==null || pageNum.equals("")){
+			num = 1;
+		}else{
+			num = Integer.parseInt(pageNum);
+		}
+		int count = productService.findHotCount();
+		List<Product> list = productService.findhot(num,5);
+		Page<Product> p = new Page<Product>(num,5);
+		p.setList(list);
+		p.setTotalCount(count);
+		model.addAttribute("page", p);
+		model.addAttribute("list", list);
+		return "liebiao1";
 	}
 	
 	@RequestMapping(value="/single", method=RequestMethod.GET)

@@ -25,4 +25,13 @@ public class Cart {
 			container.put(pro.getId(),ci);
 		}
 	}
+	
+	public void subtractCart(Product pro){
+		CartItem ci=container.get(pro.getId());
+		if(ci.getCount()==1){
+			container.remove(pro.getId());
+		}else{
+			ci.setCount(ci.getCount()-1);
+		}
+	}
 }

@@ -21,4 +21,8 @@ public class UserService {
 	public User login(String name,String password) {
 		return userDao.selectByUsername(name, password);
 	}
+	
+	public User findByName(String name){
+		return userDao.findByName(name);
+	}
 }

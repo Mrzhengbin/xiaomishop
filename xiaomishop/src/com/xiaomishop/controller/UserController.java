@@ -20,6 +20,24 @@ public class UserController {
 	@Resource
 	private UserService userService;
 	
+	@RequestMapping(value="/judgelogin1", method=RequestMethod.GET)
+	public String judgeLogin1(HttpSession session){
+		if(session.getAttribute("name")!=null){
+			return "redirect:/product/hot";
+		}else{
+			return "login";
+		}
+	}
+	
+	@RequestMapping(value="/judgelogin", method=RequestMethod.GET)
+	public String judgeLogin(HttpSession session){
+		if(session.getAttribute("name")!=null){
+			return "redirect:/product/page";
+		}else{
+			return "login";
+		}
+	}
+	
 	@RequestMapping(value="/regist", method=RequestMethod.GET)
 	public String toRegist(Model model){
 //		model.addAttribute("user", new User());
@@ -64,11 +82,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String Login(@RequestParam("name") String name, @RequestParam("password") String password){
+	public String Login(@RequestParam("name") String name, @RequestParam("password") String password,HttpSession session){
 		User u = userService.login(name, password);
 		if(u!=null){
 			if(u.getPassword().equals(password)){
 //				return "index";
+				session.setAttribute("name", name);
 				return "redirect:/product/page";
 			}
 			return "loginfail";

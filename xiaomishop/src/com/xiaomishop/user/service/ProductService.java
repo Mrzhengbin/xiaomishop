@@ -25,4 +25,12 @@ public class ProductService {
 	public Product findById(int id){
 		return productDao.findById(id);
 	}
+	
+	public List<Product> findhot(int pageNum, int pageSize){
+		return productDao.findhotphone(pageNum, pageSize);
+	}
+	
+	public int findHotCount(){
+		return productDao.findHotCount();
+	}
 }

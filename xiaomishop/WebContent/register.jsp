@@ -16,7 +16,7 @@
 			<div class="regist_center">
 				<div class="regist_top">
 					<div class="left fl">会员注册</div>
-					<div class="right fr"><a href="../index.jsp" target="_self">小米商城</a></div>
+					<div class="right fr"><a href="${ctx}/index.jsp" target="_self">小米商城</a></div>
 					<div class="clear"></div>
 					<div class="xian center"></div>
 				</div>

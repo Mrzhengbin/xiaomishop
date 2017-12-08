@@ -22,6 +22,7 @@ public class UserDao {
 			Transaction tx = session.beginTransaction();
 			session.save(user);
 			tx.commit();
+			session.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -39,12 +40,17 @@ public class UserDao {
 	public User selectByUsername(String name,String password){
 		String hql = "from User where name ="+name;
 		return (User)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
-//		User u=this.sessionFactory.getCurrentSession().get(User.class, username);]
+//		User u=this.sessionFactory.getCurrentSession().get(User.class, username);
 		
 		
 //		Session session = sessionFactory.openSession();
 //		Transaction tx = session.beginTransaction();
 //		User u = session.get(User.class, username);
 //		return u;
+	}
+	
+	public User findByName(String name){
+		String hql = "from User where name ="+name;
+		return (User)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
 	}
 }

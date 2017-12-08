@@ -32,6 +32,7 @@ public class ProductDao {
 			Query query = session.createQuery("from Product");
 			List<Product> querylist = query.list();
 			tran.commit();
+			session.close();
 			return querylist.size();
 			
 //			int count = sessionFactory.getCurrentSession().createQuery(hql).list().size();
@@ -55,6 +56,7 @@ public class ProductDao {
 		query.setMaxResults(pageSize);
 		List<Product> list = query.list();
 		tran.commit();
+		session.close();
 		return list;
 	}
 	
@@ -64,6 +66,31 @@ public class ProductDao {
 		Query query = session.createQuery("from Product p where p.id=?");
 		query.setParameter(0,id);
 		Product p= (Product)query.uniqueResult();
+		session.close();
 		return p;
+	}
+	
+	public List<Product> findhotphone(int pageNum, int pageSize){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		String hql="from Product p where p.name like '%红米%'";
+		Query query = session.createQuery(hql);
+		query.setFirstResult((pageNum-1)*pageSize);
+		query.setMaxResults(pageSize);
+		List<Product> list = query.list();
+		System.out.println("查找红米成功");
+		tran.commit();
+		session.close();
+		return list;
+	}
+	
+	public int findHotCount(){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from Product p where p.name like '%红米%'");
+		List<Product> querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist.size();
 	}
 }
