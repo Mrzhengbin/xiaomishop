@@ -102,7 +102,7 @@
 			<div class="ddzx">个人中心</div>
 			<div class="subddzx">
 				<ul>
-					<li><a href="./self_info.html">我的个人中心</a></li>
+					<li><a href="${ctx}/self_info.html">我的个人中心</a></li>
 					<li><a href="">消息通知</a></li>
 					<li><a href="">优惠券</a></li>
 					<li><a href="${ctx}/address.jsp">收货地址</a></li>
@@ -127,8 +127,9 @@
 				<div class="clear"></div>
 			</div>
 			</c:forEach>
-			<c:forEach items="${list2}" var="p">
 			<div class="ddxq">
+			<c:forEach items="${list2}" var="p">
+			
 				<div class="ddspt fl"><img src="${ctx}/image/gwc_xiaomi6.jpg" alt=""></div>
 				<div class="ddbh fl">订单号:${p.id} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="${ctx}/order/findorder?id=${p.id}">地址></a>
@@ -143,9 +144,9 @@
 					</ul>
 				</div>
 				<div class="clear"></div>
-			</div>
-			</c:forEach>
 			
+			</c:forEach>
+			</div>
 		</div>
 		<div class="clear"></div>
 		</div>

@@ -93,4 +93,35 @@ public class ProductDao {
 		session.close();
 		return querylist.size();
 	}
+	
+	public void updateProduct(Product p){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("update Product p set p.name=?,p.producttypeid=?,p.description=?,p.price=? where p.id=?");
+		query.setParameter(0, p.getName());
+		query.setParameter(1, p.getProducttypeid());
+		query.setParameter(2, p.getDescription());
+		query.setParameter(3, p.getPrice());
+		query.setParameter(4, p.getId());
+		query.executeUpdate();
+		tran.commit();
+		session.close();
+	}
+	
+	public void deleteProduct(int id){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("delete Product p where p.id ="+id);
+		query.executeUpdate();
+		tran.commit();
+		session.close();
+	}
+	
+	public void addProduct(Product p){
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(p);
+		tx.commit();
+		session.close();
+	}
 }

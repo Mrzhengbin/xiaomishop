@@ -33,4 +33,16 @@ public class ProductService {
 	public int findHotCount(){
 		return productDao.findHotCount();
 	}
+	
+	public void updateProduct(Product p){
+		productDao.updateProduct(p);
+	}
+	
+	public void deleteProduct(int id){
+		productDao.deleteProduct(id);
+	}
+	
+	public void addProduct(Product p){
+		productDao.addProduct(p);
+	}
 }

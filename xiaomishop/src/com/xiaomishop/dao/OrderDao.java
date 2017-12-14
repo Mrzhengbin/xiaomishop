@@ -64,4 +64,14 @@ public class OrderDao {
 		tran.commit();
 		session.close();
 	}
+	
+	public List findAllOrder(){
+		Session session = sessionFactory.openSession();
+		Transaction tran = session.beginTransaction();
+		Query query = session.createQuery("from OrderItem");
+		List<OrderItem> querylist = query.list();
+		tran.commit();
+		session.close();
+		return querylist;
+	}
 }

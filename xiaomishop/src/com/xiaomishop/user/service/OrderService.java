@@ -34,4 +34,8 @@ public class OrderService {
 	public void addaddress(String address,int id){
 		orderDao.addaddress(address, id);
 	}
+	
+	public List allOrder(){
+		return orderDao.findAllOrder();
+	}
 }
