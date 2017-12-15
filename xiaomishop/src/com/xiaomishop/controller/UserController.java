@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xiaomishop.entity.User;
 import com.xiaomishop.user.service.UserService;
@@ -57,6 +58,9 @@ public class UserController {
 //			System.out.println(user.getName());
 //			System.out.println(user.getPassword());
 //			System.out.println(user.getPhone());
+			if(userService.findByName(user.getName())!=null){
+				return "registfail";
+			}
 			userService.regist(user);
 			return "login";
 		}catch(Exception e){
@@ -98,4 +102,17 @@ public class UserController {
 			return "loginfail";
 		}
 	}
+	
+	@RequestMapping("/checkuser")
+	@ResponseBody
+	public String check(@RequestParam("id") String id) {
+		User u = this.userService.findById(Integer.parseInt(id));
+		String msg = "OK!";
+		if(u != null) {
+			msg = "this name is already uesed";
+			return msg;
+		}
+		return msg;
+	}
+
 }

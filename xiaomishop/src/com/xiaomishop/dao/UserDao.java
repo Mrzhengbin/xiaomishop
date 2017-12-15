@@ -53,4 +53,9 @@ public class UserDao {
 		String hql = "from User where name ="+name;
 		return (User)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
 	}
+	
+	public User findById(int id){
+		String hql = "from User where id ="+id;
+		return (User)sessionFactory.getCurrentSession().createQuery(hql).uniqueResult();
+	}
 }

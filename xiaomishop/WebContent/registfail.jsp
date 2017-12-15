@@ -5,12 +5,12 @@
 <head>
 		<meta charset="UTF-8">
 		<title>用户注册</title>
-		<link rel="stylesheet" type="text/css" href="../css/login.css">
+		<link rel="stylesheet" type="text/css" href="${ctx }/css/login.css">
 	</head>
 	<body>
 		<div class="top center">
 			<div class="logo center">
-				<a href="./index.jsp" target="_self"><img src="image/mistore_logo.png" alt=""></a>
+				<a href="${ctx }/index.jsp" target="_self"><img src="${ctx}/image/mistore_logo.png" alt=""></a>
 			</div>
 		</div>
 		<div class="register">
@@ -23,7 +23,7 @@
 	</div>
 	<footer>
 			<div class="copyright">简体 | 繁体 | English | 常见问题</div>
-			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="./image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
+			<div class="copyright">小米公司版权所有-京ICP备10046444-<img src="${ctx }/image/ghs.png" alt="">京公网安备11010802020134号-京ICP证110507号</div>
 		</footer>
 	</body>
 </html>

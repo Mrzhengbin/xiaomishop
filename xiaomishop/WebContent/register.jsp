@@ -8,7 +8,21 @@
 		<meta charset="UTF-8">
 		<title>用户注册</title>
 		<link rel="stylesheet" type="text/css" href="../css/login.css">
+		<script text="text/javascript">
+		function checkUser() {
+			var user=$("#checkis").val();
+			alert(user);
+//   			$.ajax({
+//    				type:"GET",
+//    				url:"checkuser",
+//    				data:{id:user},
+//    				success:function(msg){
+//    					$('#checkiss').html(msg);
+//    				}
+//    			});
+		}
 
+		</script>
 	</head>
 	<body>
 		<form  method="post" action="${ctx }/user/regist">
@@ -21,7 +35,7 @@
 					<div class="xian center"></div>
 				</div>
 				<div class="regist_main center">
-					<div class="username">用&nbsp;&nbsp;户&nbsp;&nbsp;名:&nbsp;&nbsp;<input class="shurukuang" type="text" name="name" placeholder="请输入你的用户名"/><span>请不要输入汉字</span></div>
+					<div class="username">用&nbsp;&nbsp;户&nbsp;&nbsp;名:&nbsp;&nbsp;<input class="shurukuang" type="text" name="name" placeholder="请输入你的用户名" onblur="checkUser()" id="checkis"/><text id="checkiss">*</text><span>请输入非中文用户名</span></div>
 					<div class="username">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;<input class="shurukuang" type="password" name="password" placeholder="请输入你的密码"/><span>请输入6位以上字符</span></div>
 					<div class="username">确认密码:&nbsp;&nbsp;<input class="shurukuang" type="password" name="repassword" placeholder="请确认你的密码"/><span>两次密码要输入一致哦</span></div>
 					<div class="username">手&nbsp;&nbsp;机&nbsp;&nbsp;号:&nbsp;&nbsp;<input class="shurukuang" type="text" name="phone" placeholder="请填写正确的手机号"/><span>填写下手机号吧，方便我们联系您！</span></div>
